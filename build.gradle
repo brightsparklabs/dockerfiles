@@ -8,14 +8,14 @@
 // -----------------------------------------------------------------------------
 
 plugins {
-    id 'com.brightsparklabs.gradle.multi-git' version '0.1.0'
+    id 'com.brightsparklabs.gradle.docker-image' version '1.0.0'
 }
 
 // -----------------------------------------------------------------------------
 // PROJECT IDENTIFICATION
 // -----------------------------------------------------------------------------
 
-project.description  = 'Scripts and files for the Docker images used as base templates at brightSPARK Labs.
+project.description  = 'Scripts and files for the Docker images used as base templates at brightSPARK Labs.'
 project.group        = 'com.brightsparklabs'
 project.version      = 'git describe --dirty'.execute().text.trim()
 
@@ -24,6 +24,17 @@ project.version      = 'git describe --dirty'.execute().text.trim()
 // -----------------------------------------------------------------------------
 
 dockerImagePluginConfig {
-    dockerFiles = []
+    dockerFileDefinitions = [
+        [
+            'dockerfile' : file('src/java8/Dockerfile'),
+            'repository' : 'brightsparklabs/java8',
+            'tags'       : ['8u102b14']
+        ],
+        [
+            'dockerfile' : file('src/jinja2/Dockerfile'),
+            'repository' : 'brightsparklabs/jinja2',
+            'tags'       : ['0.3.1-0']
+        ],
+    ]
 }
 
