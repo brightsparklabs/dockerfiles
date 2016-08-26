@@ -1,0 +1,29 @@
+/*
+ * Created by brightSPARK Labs
+ * www.brightsparklabs.com
+ */
+
+// -----------------------------------------------------------------------------
+// PLUGINS
+// -----------------------------------------------------------------------------
+
+plugins {
+    id 'com.brightsparklabs.gradle.multi-git' version '0.1.0'
+}
+
+// -----------------------------------------------------------------------------
+// PROJECT IDENTIFICATION
+// -----------------------------------------------------------------------------
+
+project.description  = 'Scripts and files for the Docker images used as base templates at brightSPARK Labs.
+project.group        = 'com.brightsparklabs'
+project.version      = 'git describe --dirty'.execute().text.trim()
+
+// -----------------------------------------------------------------------------
+// CONFIGURATION: com.brightsparklabs.gradle.docker-image
+// -----------------------------------------------------------------------------
+
+dockerImagePluginConfig {
+    dockerFiles = []
+}
+
