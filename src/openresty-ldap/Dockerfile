@@ -1,9 +1,16 @@
-# Dockerfile - alpine
-# https://github.com/openresty/docker-openresty
+##
+ # Alpine based openresty + nginx-auth-ldap image.
+ # This is based off:
+ # https://raw.githubusercontent.com/openresty/docker-openresty/master/alpine/Dockerfile
+ # _____________________________________________________________________________
+ #
+ # Created by brightSPARK Labs
+ # www.brightsparklabs.com
+ ##
 
-FROM alpine:latest
-
-MAINTAINER Evan Wies <evan@neomantra.net>
+FROM alpine:3.4
+MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+LABEL Description="Alpine based Oracle Java 8 JRE image." Vendor="brightSPARK Labs"
 
 # Docker Build Arguments
 ARG RESTY_VERSION="1.11.2.1"
@@ -39,6 +46,8 @@ ARG RESTY_CONFIG_OPTIONS="\
     --with-stream \
     --with-stream_ssl_module \
     --with-threads \
+    # additions for nginx-auth-ldap
+    --add-module=/tmp/nginx-auth-ldap/ \
     "
 
 # These are not intended to be user-specified
@@ -62,13 +71,18 @@ RUN \
         perl-dev \
         readline-dev \
         zlib-dev \
+        # additions for nginx-auth-ldap
+        git openldap-dev \
     && apk add --no-cache \
         gd \
         geoip \
         libgcc \
         libxslt \
         zlib \
+        # additions for nginx-auth-ldap
+        libldap \
     && cd /tmp \
+    && git clone https://github.com/kvspb/nginx-auth-ldap.git \
     && curl -fSL https://www.openssl.org/source/openssl-${RESTY_OPENSSL_VERSION}.tar.gz -o openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
     && tar xzf openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
     && curl -fSL https://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${RESTY_PCRE_VERSION}.tar.gz -o pcre-${RESTY_PCRE_VERSION}.tar.gz \
@@ -90,3 +104,4 @@ RUN \
     && ln -sf /dev/stderr /usr/local/openresty/nginx/logs/error.log
 
 ENTRYPOINT ["/usr/local/openresty/bin/openresty", "-g", "daemon off;"]
+
