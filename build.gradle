@@ -35,6 +35,16 @@ dockerImagePluginConfig {
             'repository' : 'brightsparklabs/jinja2',
             'tags'       : ['0.3.1-0']
         ],
+        [
+            'dockerfile' : file('src/logstash/Dockerfile'),
+            'repository' : 'brightsparklabs/logstash',
+            'tags'       : ['2.3.2']
+        ],
+        [
+            'dockerfile' : file('src/openresty-ldap/Dockerfile'),
+            'repository' : 'brightsparklabs/openresty-ldap',
+            'tags'       : ['1.11.2.1-alpine']
+        ],
     ]
 }
 
