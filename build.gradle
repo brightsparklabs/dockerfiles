@@ -26,6 +26,11 @@ project.version      = 'git describe --dirty'.execute().text.trim()
 dockerImagePluginConfig {
     dockerFileDefinitions = [
         [
+            'dockerfile' : file('src/groovy/Dockerfile'),
+            'repository' : 'brightsparklabs/groovy',
+            'tags'       : ['2.4.5']
+        ],
+        [
             'dockerfile' : file('src/java8/Dockerfile'),
             'repository' : 'brightsparklabs/java8',
             'tags'       : ['8u102b14']
