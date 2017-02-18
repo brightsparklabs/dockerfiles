@@ -50,6 +50,11 @@ dockerImagePluginConfig {
             'repository' : 'brightsparklabs/openresty-ldap',
             'tags'       : ['1.11.2.1-alpine']
         ],
+        [
+            'dockerfile' : file('src/nifi/Dockerfile'),
+            'repository' : 'brightsparklabs/nifi',
+            'tags'       : ['1.1.1']
+        ],
     ]
 }
 
