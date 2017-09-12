@@ -10,7 +10,7 @@ FROM brightsparklabs/java8:g1.0.0
 MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
 LABEL Description="Alpine based Apache NiFi image." Vendor="brightSPARK Labs"
 
-ENV NIFI_VERSION 1.1.1
+ENV NIFI_VERSION 1.1.2
 ENV NIFI_HOME /opt/nifi
 
 # Download and Install nifi
@@ -30,6 +30,7 @@ VOLUME ["$NIFI_HOME/conf", "$NIFI_HOME/database_repository", "$NIFI_HOME/flowfil
 
 # Nifi Web port
 EXPOSE 8080
+EXPOSE 9443
 
 WORKDIR $NIFI_HOME
 
