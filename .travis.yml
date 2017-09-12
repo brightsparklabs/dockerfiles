@@ -29,6 +29,9 @@ branches:
     only:
         - master
 
+install:
+    - ./gradlew buildDockerImages
+
 script:
     - ./gradlew buildDockerImages
 

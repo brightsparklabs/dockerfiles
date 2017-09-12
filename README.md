@@ -20,9 +20,9 @@ git checkout master
 git merge develop
 git push --all
 git push --tags
+```
 
 - The CI server will automatically publish the new images.
-```
 
 # Licenses
 
