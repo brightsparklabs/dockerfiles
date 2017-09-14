@@ -26,3 +26,14 @@ RUN \
 # Workaround to run groovy in alpine - https://issues.apache.org/jira/browse/GROOVY-7906
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+# install utility packages
+RUN apk add --no-cache coreutils
+RUN apk add --no-cache curl
+RUN apk add --no-cache netcat-openbsd
+RUN apk add --no-cache vim
+RUN apk add --no-cache git
+RUN apk add --no-cache openldap-clients
+RUN apk add --no-cache screen
+RUN apk add --no-cache tmux
+RUN apk add --no-cache byobu
+RUN apk add --no-cache tcpdump
