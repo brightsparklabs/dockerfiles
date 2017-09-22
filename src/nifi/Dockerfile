@@ -10,7 +10,7 @@ FROM brightsparklabs/java8:g1.0.0
 MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
 LABEL Description="Alpine based Apache NiFi image." Vendor="brightSPARK Labs"
 
-ENV NIFI_VERSION 1.1.2
+ENV NIFI_VERSION 1.2.0
 ENV NIFI_HOME /opt/nifi
 
 # Download and Install nifi
