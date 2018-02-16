@@ -1,0 +1,5 @@
+click
+git+https://github.com/ns1/ns1-python.git
+pyyaml
+requests
+

@@ -1,0 +1,11 @@
+##
+ # Manages the DNS records for brightsparklabs.com
+ # ________________________________________________________________________________
+ #
+ # Created by brightSPARK Labs
+ # www.brightsparklabs.com
+ ##
+
+# update ip every 5 minutes
+*/5 * * * * /app/ns1_ddns.py
+
