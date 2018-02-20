@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 plugins {
-    id 'com.brightsparklabs.gradle.docker-image' version '1.2.0'
+    id 'com.brightsparklabs.gradle.docker-image' version '1.4.0'
 }
 
 // -----------------------------------------------------------------------------
@@ -24,6 +24,7 @@ project.version      = 'git describe --dirty'.execute().text.trim()
 // -----------------------------------------------------------------------------
 
 dockerImagePluginConfig {
+    continueOnFailure = true
     dockerFileDefinitions = [
         [
             'dockerfile' : file('src/groovy/Dockerfile'),
