@@ -16,5 +16,5 @@ WORKDIR /app
 RUN apk add --no-cache git \
     && pip install --no-cache-dir -r requirements.txt \
     && apk del --no-cache git
-CMD ["crond", "-f", "-d", "8"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
