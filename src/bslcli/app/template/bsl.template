@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+
+entrypoint=
+if [ ! -z "$1" ]
+then
+    entrypoint="--entrypoint bash"
+    shift
+fi
+
+CLI_HOME="${HOME}/.brightsparklabs/cli"
+mkdir -p "${CLI_HOME}"
+
+    #--user `id -u`:`id -g` \
+exec docker run \
+    --name bslcli \
+    -it \
+    --rm \
+    --network=host \
+    --volume /var/run/docker.sock:/var/run/docker.sock \
+    --volume "${CLI_HOME}":/data/cli \
+    --volume "${HOME}/.ssh":/root/.ssh:ro \
+    --volume /:/data/host \
+    -e BSL_CLI_EXT_SCRIPT_VERSION=1.0.0 \
+    -e BSL_CLI_EXT_HOSTNAME=`hostname` \
+    -e BSL_CLI_EXT_EXE=$0 \
+    -e BSL_CLI_EXT_PWD="/data/host/`pwd`" \
+    ${entrypoint} \
+    brightsparklabs/cli $@
+
