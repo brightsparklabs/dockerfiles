@@ -7,6 +7,8 @@
  ##
 
 FROM node:14.7.0-alpine
+MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+LABEL Description="Node-Alpine based image with AWS CLI and some standard tools for CI-CD" Vendor="brightSPARK Labs"
 
 # install utility packages
 RUN apk add --no-cache python
