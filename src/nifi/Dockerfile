@@ -7,7 +7,7 @@
  ##
 
 FROM brightsparklabs/java8:g1.0.0
-MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>"
 LABEL Description="Alpine based Apache NiFi image." Vendor="brightSPARK Labs"
 
 ENV NIFI_VERSION 1.2.0

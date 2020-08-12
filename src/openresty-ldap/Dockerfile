@@ -9,7 +9,7 @@
  ##
 
 FROM alpine:3.4
-MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>"
 LABEL Description="Alpine based Oracle Java 8 JRE image." Vendor="brightSPARK Labs"
 
 # Docker Build Arguments

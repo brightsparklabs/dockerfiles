@@ -7,7 +7,7 @@
  ##
 
 FROM python:2.7.12-alpine
-MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>"
 LABEL Description="Alpine based Jinja2 image." Vendor="brightSPARK Labs"
 
 RUN \
