@@ -14,7 +14,7 @@ ENV NIFI_VERSION 1.2.0
 ENV NIFI_HOME /opt/nifi
 
 # Download and Install nifi
-RUN wget -q http://mirror.cogentco.com/pub/apache/nifi/$NIFI_VERSION/nifi-$NIFI_VERSION-bin.tar.gz && \
+RUN wget -q http://archive.apache.org/dist/nifi/$NIFI_VERSION/nifi-$NIFI_VERSION-bin.tar.gz && \
    tar xzf nifi-$NIFI_VERSION-bin.tar.gz -C /opt/ && \
    ln -s /opt/nifi-$NIFI_VERSION $NIFI_HOME && \
    rm nifi-$NIFI_VERSION-bin.tar.gz && \

@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 plugins {
-    id 'com.brightsparklabs.gradle.docker-image' version '1.4.0'
+    id 'com.brightsparklabs.gradle.docker-image' version '2.2.0'
 }
 
 // -----------------------------------------------------------------------------
@@ -59,6 +59,10 @@ dockerImagePluginConfig {
             'dockerfile' : file('src/openresty-ldap/Dockerfile'),
             'repository' : 'brightsparklabs/openresty-ldap',
             'tags'       : ['1.11.2.1-alpine']
+        ],
+        [
+            'dockerfile' : file('src/aws-ci-cd/Dockerfile'),
+            'repository' : 'brightsparklabs/aws-ci-cd'
         ],
     ]
 }
