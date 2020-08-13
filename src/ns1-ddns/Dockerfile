@@ -7,7 +7,7 @@
  ##
 
 FROM python:alpine
-MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>"
 LABEL Description="Alpine based image for performing dynamic DNS updates with NS1." Vendor="brightSPARK Labs"
 
 COPY crontab /etc/crontabs/root

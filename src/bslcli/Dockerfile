@@ -7,7 +7,7 @@
  ##
 
 FROM python
-MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>"
 LABEL Description="Alpine based image for running bslcli" Vendor="brightSPARK Labs"
 
 COPY app /app
