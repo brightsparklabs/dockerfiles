@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 plugins {
-    id 'com.brightsparklabs.gradle.docker-image' version '1.4.0'
+    id 'com.brightsparklabs.gradle.docker-image' version '2.2.0'
 }
 
 // -----------------------------------------------------------------------------
@@ -28,37 +28,41 @@ dockerImagePluginConfig {
     dockerFileDefinitions = [
         [
             'dockerfile' : file('src/groovy/Dockerfile'),
-            'repository' : 'brightsparklabs/groovy',
+            'name' : 'brightsparklabs/groovy',
             'tags'       : ['2.4.5']
         ],
         [
             'dockerfile' : file('src/java8/Dockerfile'),
-            'repository' : 'brightsparklabs/java8',
+            'name' : 'brightsparklabs/java8',
             'tags'       : ['8u102b14']
         ],
         [
             'dockerfile' : file('src/jinja2/Dockerfile'),
-            'repository' : 'brightsparklabs/jinja2',
+            'name' : 'brightsparklabs/jinja2',
             'tags'       : ['0.3.1-0']
         ],
         [
             'dockerfile' : file('src/logstash/Dockerfile'),
-            'repository' : 'brightsparklabs/logstash',
+            'name' : 'brightsparklabs/logstash',
             'tags'       : ['2.3.2']
         ],
         [
             'dockerfile' : file('src/nifi/Dockerfile'),
-            'repository' : 'brightsparklabs/nifi',
+            'name' : 'brightsparklabs/nifi',
             'tags'       : ['1.2.0']
         ],
         [
             'dockerfile' : file('src/ns1-ddns/Dockerfile'),
-            'repository' : 'brightsparklabs/ns1-ddns'
+            'name' : 'brightsparklabs/ns1-ddns'
         ],
         [
             'dockerfile' : file('src/openresty-ldap/Dockerfile'),
-            'repository' : 'brightsparklabs/openresty-ldap',
+            'name' : 'brightsparklabs/openresty-ldap',
             'tags'       : ['1.11.2.1-alpine']
+        ],
+        [
+            'dockerfile' : file('src/aws-ci-cd/Dockerfile'),
+            'name' : 'brightsparklabs/aws-ci-cd'
         ],
     ]
 }

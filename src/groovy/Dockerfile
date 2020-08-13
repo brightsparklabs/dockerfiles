@@ -6,8 +6,8 @@
  # www.brightsparklabs.com
  ##
 
-FROM brightsparklabs/java8:g1.0.0 
-MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+FROM brightsparklabs/java8:g1.0.0
+LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>"
 LABEL Description="Alpine based Oracle Java 8 JRE image with Groovy 2.4.5" Vendor="brightSPARK Labs"
 
 ENV GROOVY_VERSION=2.4.5

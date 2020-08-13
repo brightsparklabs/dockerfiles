@@ -7,7 +7,7 @@
  ##
 
 FROM brightsparklabs/java8:g1.0.0
-MAINTAINER brightSPARK Labs <enquire@brightsparklabs.com>
+LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>"
 LABEL Description="Alpine based Logstash + glibc image." Vendor="brightSPARK Labs"
 
 ENV LOGSTASH_VERSION 2.3.2
