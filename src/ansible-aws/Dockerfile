@@ -11,11 +11,9 @@ LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>" \
     Description="Python3 based image with ansible and plugins to support AWS modules and SSM." \
     Vendor="brightSPARK Labs"
 
-RUN python -m pip install ansible
+RUN python -m pip install ansible boto3 docker
 
 RUN ansible-galaxy collection install community.aws community.general
-
-RUN pip install boto3 docker
 
 RUN apt update && \
     apt install -y curl && \
