@@ -64,6 +64,10 @@ dockerImagePluginConfig {
             'dockerfile' : file('src/aws-ci-cd/Dockerfile'),
             'name' : 'brightsparklabs/aws-ci-cd'
         ],
+        [
+            'dockerfile' : file('src/ansible-aws/Dockerfile'),
+            'name' : 'brightsparklabs/ansible-aws'
+        ],
     ]
 }
 
