@@ -22,11 +22,9 @@ branches:
     only:
         - master
 
-before_script:
-    - docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
+install: skip
 
 script:
+    - docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
     - ./gradlew publishDockerImages
-
-after_script:
     - docker logout
