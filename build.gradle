@@ -68,6 +68,10 @@ dockerImagePluginConfig {
             'dockerfile' : file('src/ansible-aws/Dockerfile'),
             'name' : 'brightsparklabs/ansible-aws'
         ],
+        [
+            'dockerfile' : file('src/puppeteer-pipelines/Dockerfile'),
+            'name' : 'brightsparklabs/puppeteer-pipelines'
+        ],
     ]
 }
 
