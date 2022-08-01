@@ -13,6 +13,7 @@ LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>" \
 
 RUN python -m pip install ansible boto3 docker && \
     ansible-galaxy collection install community.aws community.general && \
+    ansible-galaxy install christiangda.amazon_cloudwatch_agent && \
     apt update && \
     apt install -y curl && \
     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb" && \
