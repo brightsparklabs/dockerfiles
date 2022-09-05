@@ -13,6 +13,7 @@ LABEL Description="Alpine based Jinja2 image." Vendor="brightSPARK Labs"
 RUN \
     apk add --no-cache \
         bash=5.1.16-r2 \
+        git=2.36.2-r0 \
         make=4.3-r0 && \
     pip install --force-reinstall \
         PyYAML==6.0 \
