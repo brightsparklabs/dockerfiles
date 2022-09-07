@@ -9,7 +9,7 @@ services:
     - docker
 
 jdk:
-    - openjdk11
+    - openjdk17
 
 notifications:
     email:
