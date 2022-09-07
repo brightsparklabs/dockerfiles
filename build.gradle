@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 plugins {
-    id 'com.brightsparklabs.gradle.docker-image' version '2.2.2'
+    id 'com.brightsparklabs.gradle.docker-image' version '2.2.3'
 }
 
 // -----------------------------------------------------------------------------
@@ -26,11 +26,12 @@ project.version      = 'git describe --dirty'.execute().text.trim()
 dockerImagePluginConfig {
     continueOnFailure = true
     dockerFileDefinitions = [
-        [
-            'dockerfile' : file('src/groovy/Dockerfile'),
-            'name' : 'brightsparklabs/groovy',
-            'tags'       : ['2.4.5']
-        ],
+// TODO SYS-84: Update or deprecate based on Leng's assessment.
+//        [
+//            'dockerfile' : file('src/groovy/Dockerfile'),
+//            'name' : 'brightsparklabs/groovy',
+//            'tags'       : ['2.4.5']
+//        ],
         [
             'dockerfile' : file('src/java8/Dockerfile'),
             'name' : 'brightsparklabs/java8',
@@ -41,11 +42,12 @@ dockerImagePluginConfig {
             'name' : 'brightsparklabs/jinja2',
             'tags'       : ['0.3.1-0']
         ],
-        [
-            'dockerfile' : file('src/logstash/Dockerfile'),
-            'name' : 'brightsparklabs/logstash',
-            'tags'       : ['2.3.2']
-        ],
+// TODO SYS-84: Update or deprecate based on Leng's assessment.
+//        [
+//            'dockerfile' : file('src/logstash/Dockerfile'),
+//            'name' : 'brightsparklabs/logstash',
+//            'tags'       : ['2.3.2']
+//        ],
         [
             'dockerfile' : file('src/nifi/Dockerfile'),
             'name' : 'brightsparklabs/nifi',
@@ -55,11 +57,12 @@ dockerImagePluginConfig {
             'dockerfile' : file('src/ns1-ddns/Dockerfile'),
             'name' : 'brightsparklabs/ns1-ddns'
         ],
-        [
-            'dockerfile' : file('src/openresty-ldap/Dockerfile'),
-            'name' : 'brightsparklabs/openresty-ldap',
-            'tags'       : ['1.11.2.1-alpine']
-        ],
+// TODO SYS-84: Update or deprecate based on Leng's assessment.
+//        [
+//            'dockerfile' : file('src/openresty-ldap/Dockerfile'),
+//            'name' : 'brightsparklabs/openresty-ldap',
+//            'tags'       : ['1.11.2.1-alpine']
+//        ],
         [
             'dockerfile' : file('src/aws-ci-cd/Dockerfile'),
             'name' : 'brightsparklabs/aws-ci-cd'
