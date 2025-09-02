@@ -1,23 +1,35 @@
 ##
- # Node-Alpine based image with AWS CLI and some standard tools for CI-CD
+ # Ubuntu based image with AWS CLI and some standard tools for CI-CD
  # _____________________________________________________________________________
  #
  # Created by brightSPARK Labs
  # www.brightsparklabs.com
  ##
 
-FROM node:14.7.0-alpine
-LABEL Maintainer="brightSPARK Labs <enquire@brightsparklabs.com>" \
-    Description="Node-Alpine based image with AWS CLI and some standard tools for CI-CD" \
-    Vendor="brightSPARK Labs"
+FROM ubuntu:24.04
 
-# install utility packages
-RUN apk add --no-cache python
-RUN apk add --no-cache py-pip
-RUN apk add --no-cache bash
-RUN apk add --no-cache jq
-RUN apk add --no-cache openssh
-RUN apk add --no-cache git
-RUN pip install awscli
+# Install utility packages
+RUN apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get -y install python3 pipx bash jq openssh-client git curl \
+  && apt-get clean \
+  && rm -fr /var/lib/apt/lists/* \
+  && pipx install awscli \
+  && pipx ensurepath \
+  && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 ENTRYPOINT ["/bin/bash"]
+
+ARG APP_VERSION
+ARG BUILD_DATE
+ARG VCS_REF
+LABEL org.label-schema.name="aws-ci-cd" \
+      org.label-schema.description="Ubuntu based image with AWS CLI and some standard tools for CI-CD" \
+      org.label-schema.vendor="brightSPARK Labs" \
+      org.label-schema.schema-version="1.0.0-rc1" \
+      org.label-schema.vcs-url="https://github.com/brightsparklabs/dockerfiles" \
+      org.label-schema.vcs-ref=${VCS_REF} \
+      org.label-schema.build-date=${BUILD_DATE} \
+      org.label-schema.version=${APP_VERSION}
+ENV META_BUILD_DATE=${BUILD_DATE}
+ENV META_VCS_REF=${VCS_REF}
+ENV APP_VERSION=${APP_VERSION}
