@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 plugins {
-    id 'com.brightsparklabs.gradle.docker-image' version '2.2.3'
+    id 'com.brightsparklabs.gradle.docker-image' version '4.0.0'
 }
 
 // -----------------------------------------------------------------------------
