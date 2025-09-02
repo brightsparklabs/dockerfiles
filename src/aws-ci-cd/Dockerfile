@@ -8,13 +8,15 @@
 
 FROM ubuntu:24.04
 
+# Set the `PATH` for `pipx` installs.
+ENV PATH="/root/.local/bin:${PATH}"
+
 # Install utility packages
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get -y install python3 pipx bash jq openssh-client git curl \
   && apt-get clean \
   && rm -fr /var/lib/apt/lists/* \
   && pipx install awscli \
-  && pipx ensurepath \
   && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 ENTRYPOINT ["/bin/bash"]
