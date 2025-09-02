@@ -48,11 +48,12 @@ dockerImagePluginConfig {
 //            'name' : 'brightsparklabs/logstash',
 //            'tags'       : ['2.3.2']
 //        ],
-        [
-            'dockerfile' : file('src/nifi/Dockerfile'),
-            'name' : 'brightsparklabs/nifi',
-            'tags'       : ['1.2.0']
-        ],
+// SYS-189: This is only used for Osmosis-B which we no longer support.
+//        [
+//            'dockerfile' : file('src/nifi/Dockerfile'),
+//            'name' : 'brightsparklabs/nifi',
+//            'tags'       : ['1.2.0']
+//        ],
         [
             'dockerfile' : file('src/ns1-ddns/Dockerfile'),
             'name' : 'brightsparklabs/ns1-ddns'
