@@ -6,7 +6,9 @@
 name: Debug some issues with tagging.
 
 on:
-  push
+  push:
+    tags:
+      - 'SYS-189*'
 
 jobs:
   build:

@@ -5,7 +5,11 @@
 
 name: Test Build Docker Images
 
-on: [ push, pull_request ]
+#on: [ push, pull_request ]
+on:
+  push:
+    branches:
+      - no-branch-will-ever-be-named-this
 
 jobs:
   build:

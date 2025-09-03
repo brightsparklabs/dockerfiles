@@ -5,10 +5,14 @@
 
 name: Build and publish docker images
 
+#on:
+#  push:
+#    tags:
+#      - '*'
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - no-branch-will-ever-be-named-this
 
 jobs:
   build:
