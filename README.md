@@ -15,9 +15,13 @@ brightSPARK Labs.
 
 ```shell
 git checkout develop
-git tag -a -m "<ticket>: Tag version v<X.Y.Z>" <X.Y.Z>
+git pull
+git tag -m '<ticket>: Tag version v<X.Y.Z>' -a '<X.Y.Z>'
 git checkout master
+git pull
 git merge develop
+git branch -l
+# Delete any old branches with `git branch -D <branch>`
 git push --all
 git push --tags
 ```
