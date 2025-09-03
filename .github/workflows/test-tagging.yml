@@ -18,6 +18,11 @@ jobs:
         # fetch all history for all branches and tags, so that our `make` targets can get tags
         with:
           fetch-depth: 0
-          fetch-tags: true
+      - name: Fix tag
+        # Workaround actions/checkout bug
+        # https://github.com/actions/checkout/issues/290
+        # https://github.com/actions/checkout/issues/882
+        if: github.ref_type == 'tag'
+        run: git fetch -fv origin tag "${GITHUB_REF_NAME}"
       - name: Check the describe version.
         run: git describe --dirty
