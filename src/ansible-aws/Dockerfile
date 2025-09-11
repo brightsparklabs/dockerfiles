@@ -11,15 +11,14 @@ FROM python:3.13.7-slim
 # Set the `PATH` for `pipx` installs.
 ENV PATH="/root/.local/bin:${PATH}"
 
-# NOTE: `pipx` is used to install python cli tools as it can also install system level dependencies.
-# `boto3` has no cli component so we can not install it with `pipx` and have to fallback to just `pip`.
+# NOTE: `pipx` installs tools into their own environments, so dependency libraries need to be injected.
+# See https://stackoverflow.com/questions/76842644/install-dependencies-in-pipx-virtual-environment
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install curl pipx \
     && apt-get clean \
     && rm -fr /var/lib/apt/lists/* \
     && pipx install --include-deps ansible \
-    && pip install boto3 \
-    && ansible-galaxy collection install community.aws community.general \
+    && pipx inject ansible boto3 \
     && ansible-galaxy install christiangda.amazon_cloudwatch_agent \
     && curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" \
       -o "session-manager-plugin.deb" \
